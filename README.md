@@ -143,7 +143,7 @@ To add custom classes to the field's label:
 #### Required Fields
 
 A label that is associated with a required field is automatically annotated with
-a `required` CSS class. You are free to add any appropriate CSS to style 
+a `required` CSS class. You are free to add any appropriate CSS to style
 required fields as desired.  One example would be to automatically add an
 asterisk to the end of the label:
 
@@ -154,9 +154,11 @@ label.required:after {
 ```
 
 The label `required` class is determined based on the definition of a presence
-validator with the associated model attribute. Presently this is one of:
-ActiveRecord::Validations::PresenceValidator or
-ActiveModel::Validations::PresenceValidator.
+validator with the associated model attribute (
+  ActiveRecord::Validations::PresenceValidator or
+  ActiveModel::Validations::PresenceValidator).  If using Rails > 4.2 the
+`required` class will also be added if either a `belongs_to` or `has_one`
+association has specified `required: true.`
 
 ### Help Text
 
